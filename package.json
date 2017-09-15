@@ -1,0 +1,16 @@
+{
+  "name": "dateparse",
+  "version": "0.0.1",
+  "description": "Parse string date value into valid Date() instance.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/crysalead-js/dateparse.git"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5"
+  },
+  "scripts": {
+    "test": "jasmine"
+  }
+}
