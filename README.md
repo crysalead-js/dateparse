@@ -1,6 +1,6 @@
 # dateparse
 
-[![Build Status](https://travis-ci.com/crysalead-js/dateparse.svg?branch=master)](https://travis-ci.com/crysalead-js/dateparse)
+[![Build Status](https://app.travis-ci.com/crysalead-js/dateparse.svg?branch=master)](https://app.travis-ci.com/crysalead-js/dateparse)
 
 Parse string date value into valid `Date()` instance.
 
