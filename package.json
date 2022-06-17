@@ -1,6 +1,6 @@
 {
   "name": "dateparse",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse string date value into valid Date() instance.",
   "license": "MIT",
   "repository": {
