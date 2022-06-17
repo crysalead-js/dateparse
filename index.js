@@ -3,14 +3,14 @@ module.exports = function(value, utc) {
   if (typeof value === 'number' || (!isNaN(parseFloat(value)) && isFinite(value))) {
     timestamp = Number(value) * 1000;
   } else if (typeof value === 'string') {
-    var date = new Date(value);
-    if (Number.isNaN(date.getTime())) {
-      return date;
+    var a = /^(\d{4})-(\d{2})-(\d{2})(?:(?:T| )(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z?)?$/.exec(value);
+    if (!a || Number.isNaN(Date.parse(a[1] + '-' + a[2] + '-' +a[3] + 'T' + (a[4] || '00') + ':' + (a[5] || '00') + ':' + (a[6] || '00Z')))) {
+      return;
     }
-    if (utc && !value.match(/(?:Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])/)) {
-      timestamp = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
+    if (utc) {
+      timestamp = Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4] || 0, +a[5] || 0, +a[6] || 0);
     } else {
-      timestamp = date.getTime();
+      timestamp = (new Date(+a[1], +a[2] - 1, +a[3], +a[4] || 0, +a[5] || 0, +a[6] || 0)).getTime();
     }
   } else {
     timestamp = value.getTime();
